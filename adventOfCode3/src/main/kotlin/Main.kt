@@ -9,8 +9,8 @@ fun main() {
     val disabledRegex = Regex("don't\\(\\).*?do\\(\\)")
 
     var fullFile = "do()"
-    var line = reader.readLine()
 
+    var line = reader.readLine()
     while (line != null) {
         fullFile += line
         line = reader.readLine()
@@ -18,11 +18,11 @@ fun main() {
 
     fullFile += "do()"
     print(fullFile)
+
     val filteredFile = disabledRegex.replace(fullFile, "")
-
-
     val regex = Regex("(mul\\()(\\d{1,3},\\d{1,3})(\\))")
     val results = regex.findAll(filteredFile)
+
     var finalResult = 0
     for (result in results) {
         println(result.groupValues[2])
@@ -33,7 +33,4 @@ fun main() {
     }
 
     println(finalResult)
-
-
-
 }
